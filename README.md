@@ -3,6 +3,13 @@
 
 EasyRegex is a PHP library that helps to construct hard regular expressions.  
 
+## Install
+
+```
+$ composer require koca/easyregex
+```
+
+## Usage
 
 ```php
 // some tests
@@ -41,7 +48,7 @@ echo $regex ->clean(array("modifiers" => "m", "replaceLimit" => 4))
 
 ```
 
-## Regex Capturing
+### Regex Capturing
 
 ```php
 
