@@ -41,6 +41,23 @@ echo $regex ->clean(array("modifiers" => "m", "replaceLimit" => 4))
 
 ```
 
+## Regex Capturing
+
+```php
+
+$regex->find("You have ")
+    ->beginCapture("count")
+    ->word()
+    ->endCapture();
+
+$contributions = $regex->match("You have 258 contributions in the last year");
+
+echo $contributions["count"];
+
+// Output: 258
+
+``` 
+
 ## Building the project and running the tests
 The project supports Composer so you have to install [Composer](https://getcomposer.org/doc/00-intro.md#installation-nix) first before project setup.
 

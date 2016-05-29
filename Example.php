@@ -59,6 +59,17 @@ echo $regex ->clean(array("modifiers" => "gm"))
 
 
 
+// Capture & Match
+
+$regex->clean(array("modifiers" => "m"))
+	->find("You have ")
+	->beginCapture("count")
+	->word()
+	->endCapture();
+
+$contributions = $regex->match("You have 258 contributions in the last year");
+
+echo $contributions["count"];
 
 
 
