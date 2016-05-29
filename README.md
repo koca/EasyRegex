@@ -50,3 +50,6 @@ The project supports Composer so you have to install [Composer](https://getcompo
     ./phpunit
     
 
+## License
+
+This theme is free and open source software, distributed under the [MIT License](/LICENSE) 

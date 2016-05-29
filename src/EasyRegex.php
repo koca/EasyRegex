@@ -145,6 +145,20 @@ class EasyRegex
     }
 
     /**
+     * AnythingUntil   
+     * 
+     * Anything up until given sequence of characters
+     *
+     * @access public
+     * @param  string $value The unaccepted chars
+     * @return VerbalExpressions
+     **/
+    public function anythingUntil($value)
+    {
+        return $this->anything()->add('(?='.self::sanitize($value).')');
+    }
+
+    /**
      * Something
      *
      * Accept any non-empty string
@@ -538,6 +552,68 @@ class EasyRegex
         }
 
         return $this->add($value);
+    }
+
+    /**
+     * BeginCapture
+     *
+     * Capture groups (can optionally name)
+     *
+     * @access public
+     * @param  string $name
+     * @return VerbalExpressions
+     */
+    public function beginCapture($name)
+    {
+        if ( $name ) {
+            return $this->add('(?P<' . $name . '>');
+        }
+        else {
+            return $this->add('(');
+        }
+    }
+
+    /**
+     * EndCapture
+     *
+     * Stop Capturing
+     *
+     * @access public
+     * @return VerbalExpressions
+     */
+    public function endCapture()
+    {
+        return $this->add(')');
+    }
+
+    /**
+     * Match
+     *
+     * Shorthand method for preg_match
+     *
+     * @access public
+     * @param string $value 
+     * @return Array
+     */
+    public function match($value)
+    {
+        preg_match($this->getRegex(), $value, $matches);
+        return $matches;
+    }
+
+    /**
+     * MatchAll
+     *
+     * Shorthand method for preg_match_all
+     *
+     * @access public
+     * @param string $value 
+     * @return Array
+     */
+    public function matchAll($value)
+    {
+        preg_match_all($this->getRegex(), $value, $matches);
+        return $matches;
     }
 
 }
