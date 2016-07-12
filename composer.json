@@ -1,8 +1,9 @@
 {
     "name": "koca/easyregex",
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "description": "PHP Regular expressions made easy",
+    "keywords": ["regex"],
     "require": {
         "php": ">=5.3",
         "fabpot/php-cs-fixer": "^1.11"
@@ -13,10 +14,14 @@
     "suggest": {
         "fabpot/php-cs-fixer": "PHP CS Fixer (testing for PSR-2 compliance)"
     },
-    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
             "Koca\\EasyRegex\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     }
 }
